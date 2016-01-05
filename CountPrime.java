@@ -1,5 +1,5 @@
 import java.util.*;
-public class countPrime {
+public class CountPrime {
 	public static void main(String[] args) {
 		int no=0;
 		boolean a=false;;
