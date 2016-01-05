@@ -1,5 +1,5 @@
 import java.util.*;
-public class narcissisticNumber {
+public class NarcissisticNumber {
 	public static void main(String[] args) {
 		int b1,b2,b3,n;
 		for (b1=0;b1<10;b1++){
