@@ -30,7 +30,7 @@ public class IsPermutation {
 			count2[s2.charAt(i)]++;
 		}
 		return Arrays.equals(count1,count2);
-		//cannot use count1.equals(count2), because it compares two reference instead of values in the array
+		//cannot use count1.equals(count2), because it compares two references instead of values in the array
 	}
 }
 
