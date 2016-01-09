@@ -1,0 +1,25 @@
+/*Assume you have a method isSubstring which checks if one word is a substring
+of another. Given two strings, si and s2, write code to check Ifs2 is a rotation of si
+using only onecalltoisSubstring (e.g., "waterbottLe" is a rotation of "erbottLewat").
+*/
+import java.util.*;
+public class JavaTut {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("String 1: ");
+		String s1=scanner.nextLine();
+		System.out.println("String 2: ");
+		String s2=scanner.nextLine();
+		if (isRotation(s1,s2)) System.out.println("Yes");
+		else System.out.println("No");
+	}
+	public static boolean isSubstring(String s1,String s2){
+		if(s1==null||s2==null) return false;
+		if(s1.indexOf(s2)>0) return true;
+		else return false;
+	}
+	public static boolean isRotation(String s1,String s2){
+		if(s1==null||s2==null||s1.length()!=s2.length()) return false;
+		return isSubstring(s1+s1,s2);
+	}
+}
