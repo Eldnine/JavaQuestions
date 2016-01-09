@@ -1,0 +1,45 @@
+//Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+//column are set to 0.
+import java.util.*;
+public class JavaTut {
+	public static void main(String[] args) {
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Row: ");
+		int m=scanner.nextInt();
+		System.out.println("Column: ");
+		int n=scanner.nextInt();
+		
+		int[][] matrix=new int[m][n];
+		for(int i=0;i<m;i++){
+			for (int j=0;j<n;j++){
+				matrix[i][j]=scanner.nextInt();
+			}
+		}
+		setZero(matrix,m,n);
+		for(int i=0;i<m;i++){
+			for (int j=0;j<n;j++){
+				System.out.print(matrix[i][j]+" ");
+			}
+			System.out.println("");
+		}
+	}
+	public static void setZero(int[][] matrix, int m,int n){
+		boolean[] checkRow=new boolean[m];
+		boolean[] checkColumn=new boolean[n];
+		for(int i=0;i<m;i++){
+			for (int j=0;j<n;j++){
+				if(matrix[i][j]==0){
+					checkRow[i]=true;
+					checkColumn[j]=true;
+				}
+			}
+		}
+		for(int i=0;i<m;i++){
+			for (int j=0;j<n;j++){
+				if(checkRow[i]||checkColumn[j]){
+					matrix[i][j]=0;
+				}
+			}
+		}
+	}
+}
