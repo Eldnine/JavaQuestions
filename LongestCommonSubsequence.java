@@ -22,5 +22,37 @@ public class LongestCommonSubsequence {
 		}
 		return lcs[str1.length()][str2.length()];
 	}
+	
+	//another method that also print the LCS
+	public static void LCS(String s1,String s2) {
+		int[][] dp=new int[s1.length()+1][s2.length()+1];
+		
+		//find the length of the LCS
+		for(int i=0;i<s1.length();i++){
+			for(int j=0;j<s2.length();j++){
+				if(s1.charAt(i)==s2.charAt(j)){
+					dp[i+1][j+1]=dp[i][j]+1;
+				}else dp[i+1][j+1]=Math.max(dp[i][j+1], dp[i+1][j]);
+			}
+		}
+		
+		//print
+		int r=s1.length(),c=s2.length(),t=dp[s1.length()][s2.length()];
+		char[] lcs=new char[dp[s1.length()][s2.length()]];
+		while(r>0&&c>0){
+			if(dp[r][c]==dp[r-1][c-1]+1 && dp[r-1][c]==dp[r][c-1]) {
+				lcs[t-1]=s1.charAt(r-1);
+				t--;
+				r--;
+				c--;
+			}else{
+				if(dp[r][c]==dp[r-1][c]) r--;
+				else c--;
+			}
+		}
+		
+		System.out.println(dp[s1.length()][s2.length()]);
+		System.out.println(lcs);
+	}
 }
 
